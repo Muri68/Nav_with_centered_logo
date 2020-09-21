@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NVWL</title>
+
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="slicknav.min.css">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		.inner_main_menu {
+			margin: 0 auto;
+			width: 1170px;
+		}
+		.inner_main_menu ul {
+			text-align: right;
+			padding: 20px 0 0;
+		}
+		.inner_main_menu ul li {
+			float: none;
+			display: inline-block;
+			position: relative;
+		}
+
+		.inner_main_menu ul li:nth-child(1) {float: left;}
+		.inner_main_menu ul li:nth-child(2) {float: left;}
+		.inner_main_menu ul li:nth-child(3) {float: left;}
+		.inner_main_menu ul li a {
+			color: #fff;
+			font-size: 20px;
+			text-transform: uppercase;
+			display: block;
+			padding: 10px 20px;
+		}
+		.inner_main_menu ul li a:hover{
+			color: #CF3030;
+
+		}
+
+		#main_menu {
+			width: 100%;
+			position: relative;
+			height: 90px;
+			background: #2F303A;
+		}
+
+		.logo_area {
+			width: 100px;
+			position: absolute;
+			left: 50%;
+			top: 2px;
+			content: "";
+			margin-left: -150px;
+			text-align: center;
+		}
+
+		.logo_area img {
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: auto;
+		}
+
+		/*Dropdown Menu*/
+		.inner_main_menu ul li ul {
+			padding: 0;
+			position: absolute;
+			top: 40px;
+			left: -9999999px;
+			width: 200px;
+			background: #2F303A;
+		}
+
+		.inner_main_menu ul li ul li {
+			width: 100%;
+			float: left;
+					}
+
+		.inner_main_menu ul li ul li a{
+			color: #fff;
+
+			text-align: left;
+			text-transform: capitalize;
+			font-size: 15px;
+		}
+
+		.inner_main_menu ul li ul li a:hover {
+			background-color: #fff;
+
+		}
+
+		/*Dropdown Sub Menu*/
+		.inner_main_menu ul li ul li ul {
+			top: 0;
+			left: -9999999px;
+		}
+
+		.inner_main_menu ul li:hover a {
+			color: #CF3030;
+		}
+
+		.inner_main_menu ul li:hover ul li a {
+			color: #fff;
+		}
+
+		.inner_main_menu ul li ul li a:hover {
+			color: #262626;
+		}
+
+		.inner_main_menu ul li ul li:hover a {
+			background: #ddd;
+			color: #262626;
+		}
+
+		.inner_main_menu ul li ul li:hover ul li a {
+			background: #2F303A;
+			color: #fff;
+		}
+
+		.inner_main_menu ul li ul li ul li a:hover {
+			background: #ddd;
+			color: #262626;
+		}
+
+		/*Making Dropdown Menu Disappear*/
+		.inner_main_menu ul li:hover ul {
+			left: 0;
+		}
+		.inner_main_menu ul li:hover ul li ul {
+			top: 0;
+			left: -9999999px;
+		}
+
+		.inner_main_menu ul li ul li:hover ul {
+			top: 0;
+			left: 200px;
+		}
+
+		/*Responsive with Slicknav*/
+		.slicknav_menu {
+			background: rgba(0,0,0,0) none repeat scroll 0 0;
+			font-size: 16px;
+			padding: 5px;
+			position: fixed;
+			top: 20px;
+			right: 0;
+			width: 100%;
+			z-index: 99999;
+			display: none;
+		}
+
+		ul.slicknav_nav {
+			background: #2F303A none repeat scroll 0 0;
+			left: 0;
+			position: absolute;
+			top: 69px;
+			width: 80%;
+		}
+
+		@media only screen and (min-width: 200px) and (max-width: 1164px) {
+			.slicknav_menu {
+				display: block;
+			}
+			ul.slicknav_nav {
+				width: 100%;
+			}
+			.inner_main_menu {
+				display: none;
+			}
+			.logo_area {
+				margin: 0;
+				left: 0;
+				width: 100px;
+			}
+
+			.logo_area img {
+			margin-top: 12px;
+			width: 80px;
+			height: auto;
+			}
+
+			.fa-angle-down, .fa-angle-right {
+				display: none;
+			}
+		}
+
+		.fa-angle-down {
+			padding-right: 20px;
+		}
+
+		.fa-angle-right {
+			float: right;
+			font-size: 15px;
+			font-weight: bolder;
+		}
+	</style>
+</head>
+<body>
+	<div id="main_menu">
+		<div class="logo_area">
+			<a href="#"><img src="logo.png" alt=""></a>
+		</div>
+		<div class="inner_main_menu">
+			<ul id="menu">
+				<li><a href="">Home</a></li>
+				<li><a href="">About</a></li>
+				<li><a href="">Service <i class="fas fa-angle-down"></i></a>
+					<ul>
+						<li><a href="">Dropdown Menu 1</a></li>
+						<li><a href="">Dropdown Menu 2 <i class="fas fa-angle-right"></i></a>
+							<ul>
+								<li><a href="">Dropdown Sub Menu 1</a></li>
+								<li><a href="">Dropdown Sub Menu 2</a></li>
+								<li><a href="">Dropdown Sub Menu 3</a></li>
+								<li><a href="">Dropdown Sub Menu 4</a></li>
+							</ul>
+						</li>
+						<li><a href="">Dropdown Menu 3</a></li>
+						<li><a href="">Dropdown Menu 4</a></li>
+					</ul>
+				</li>
+				<li><a href="">Contact</a></li>
+				<li><a href="">Map</a></li>
+				<li><a href="">News Latter</a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script src="jquery.slicknav.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#menu').slicknav();
+	});
+	</script>
+</body>
+</html>
